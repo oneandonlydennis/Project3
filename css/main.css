@@ -1,0 +1,13 @@
+#nav_top{
+    background: rgba(255,0,0,1);
+    border: none;
+}
+
+#nav_top a{
+    color: black;
+    list-style-type: none;
+}
+
+#nav_top a:hover{
+    border: none !important;
+}
