@@ -1,5 +1,5 @@
 <?php
-define('servername', 'localhost');
+define('servername', 'kirishiki.ga');
 define('username', 'geheugentraining');
 define('password', 'Welkom01');
 define('dbname', 'geheugentraining');

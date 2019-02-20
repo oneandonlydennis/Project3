@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$username_err = "Please enter a username.";
 	} else{
         // Prepare a select statement
-		$sql = "SELECT id FROM accounts WHERE username = ?";
+		$sql = "SELECT id FROM Users WHERE username = ?";
 		
 		if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 		
         // Prepare an insert statement
-		$sql = "INSERT INTO accounts (username, password) VALUES (?, ?)";
+		$sql = "INSERT INTO Users (username, password) VALUES (?, ?)";
 		
 		if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
