@@ -26,7 +26,7 @@ $progress = "progress";
 			while ($record = mysqli_fetch_assoc($result)){
 				echo "<tr><th scope='row'>" . $record["id"] . "</th>
 				<td>" . $record["username"] . "</td>
-				<td>" . echo $progress . "</td>
+				<td>" . $record["progress"] . "</td>
 				<td>" . $record["role"] . "</td>
 				<td>
 				<a href='./edit.php?id={$record['id']}'><img src='./resources/image/edit.png' width='30' alt='Edit record'</a>
