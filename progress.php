@@ -1,6 +1,6 @@
 <?php
 require_once "config.php";
-$sql = "SELECT * FROM studenten";
+$sql = "SELECT * FROM Users";
 
 $result = mysqli_query($conn, $sql);
 
@@ -26,14 +26,15 @@ $progress = "progress";
 			while ($record = mysqli_fetch_assoc($result)){
 				echo "<tr><th scope='row'>" . $record["id"] . "</th>
 				<td>" . $record["username"] . "</td>
-				<td>" . $record[$progress] . "</td>
-				<td>"
-				//<a href='./edit.php?id={$record['id']}'><img src='./resources/image/edit.png' width='30' alt='Edit record'</a>
-				//</td>
-				//<td>
-				//<a href='./delet.php?id={$record['id']}'><img src='./resources/image/delete.png' width='30' alt='Delet record'</a>
-				//</td>
-				//</tr>;
+				<td>" . echo $progress . "</td>
+				<td>" . $record["role"] . "</td>
+				<td>
+				<a href='./edit.php?id={$record['id']}'><img src='./resources/image/edit.png' width='30' alt='Edit record'</a>
+				</td>
+				<td>
+				<a href='./delet.php?id={$record['id']}'><img src='./resources/image/delete.png' width='30' alt='Delet record'</a>
+				</td>
+				</tr>";
 			}
 			?>
 		</tbody>
