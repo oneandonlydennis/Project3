@@ -5,19 +5,19 @@
 	<div class="collapse navbar-collapse" id="collapsibleNavId">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li class="nav-item active">
-				<a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="./index.php?content=home">Home<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="FAQ.html">FAQ</a>
+				<a class="nav-link" href="./index.php?content=faq">FAQ</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="Info.html">Info</a>
+				<a class="nav-link" href="./index.php?content=info">Info</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aanmelden</a>
 				<div class="dropdown-menu" aria-labelledby="dropdownId">
-					<a class="dropdown-item" href="registreren.php">Registreren</a>
-					<a class="dropdown-item" href="inloggen.php">Inloggen</a>
+					<a class="dropdown-item" href="./index.php?content=registreren">Registreren</a>
+					<a class="dropdown-item" href="./index.php?content=login">Inloggen</a>
 				</div>
 			</li>
 		</ul>
