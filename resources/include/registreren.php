@@ -1,7 +1,4 @@
 <?php
-// Include config file
-require_once "config.php";
-
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -118,6 +115,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<input type="submit" class="btn btn-primary" value="Submit">
 			<input type="reset" class="btn btn-default" value="Reset">
 		</div>
-		<p>Already have an account? <a href="login.php">Login here</a>.</p>
+		<p>Already have an account? <a href="]">Login here</a>.</p>
 	</form>
 </div>

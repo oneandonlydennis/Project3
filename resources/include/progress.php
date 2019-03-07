@@ -1,5 +1,8 @@
 <?php
-require_once "config.php";
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+	header("location: index.php?content=home");
+	exit;
+}
 $sql = "SELECT * FROM Users";
 
 $result = mysqli_query($conn, $sql);

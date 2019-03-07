@@ -1,8 +1,8 @@
 <?php
-session_start();
-
-require_once "config.php";
-
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+	header("location: index.php?content=progress");
+	exit;
+}
 $username = $password = "";
 $username_err = $password_err = "";
 
@@ -45,15 +45,13 @@ if($_SERVER["REQUEST_METHOD"]== "POST") {
 					mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
 					if(mysqli_stmt_fetch($stmt)){
 						if(password_verify($password, $hashed_password)){
-														// Password is correct, so start a new session
-							session_start();
 														// Store data in session variables
 							$_SESSION["loggedin"] = true;
 							$_SESSION["id"] = $id;
 							$_SESSION["username"] = $username;                            
 							
 														// Redirect user to welcome page
-							header("location: read.php");
+							header("location: index.php?content=progress");
 						} else{
 														// Display an error message if password is not valid
 							$password_err = "The password you entered was not valid.";
@@ -76,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST") {
 	mysqli_close($conn);
 }
 ?>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<form action="index.php?content=login" method="post">
 	<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
 		<label for="username">Username</label>
 		<input type="text" class="form-control" id="username" placeholder="" name="username" value="<?php echo $username; ?>">
@@ -89,3 +87,5 @@ if($_SERVER["REQUEST_METHOD"]== "POST") {
 	</div>
 	<button type="submit" class="btn btn-primary">Login</button>
 </form>
+
+<!-- ?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> -->

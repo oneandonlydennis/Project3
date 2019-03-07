@@ -23,6 +23,9 @@
 					<a class="dropdown-item" href="./index.php?content=login">Inloggen</a>
 				</div>
 			</li>
+			<li>
+				<div class="loggedin"><?php echo $loggedin?></div>
+			</li>
 		</ul>
 	</div>
 </nav>
