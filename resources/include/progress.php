@@ -1,15 +1,36 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: index.php?content=home");
 	exit;
 }
-$sql = "SELECT * FROM Users";
+$sql = "SELECT role FROM Users WHERE id = ?";
+if($stmt = mysqli_prepare($conn, $sql)){
+	mysqli_stmt_bind_param($stmt, "i", $_SESSION["id"]);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_store_result($stmt);
+	mysqli_stmt_bind_result($stmt, $role);
+}
+while (mysqli_stmt_fetch($stmt)) {
+	if ($role == "gebruiker") {
+		echo "User is gebruiker";
+	}
+	if ($role == "admin") {
+		echo "User is admin";
+	}
+	if ($role == "superadmin") {
+		echo "User is superadmin";
+	}
+}
 
-$result = mysqli_query($conn, $sql);
+// $sql = "SELECT * FROM Users";
 
-mysqli_close($conn);
+// $result = mysqli_query($conn, $sql);
 
-$progress = "progress";
+// mysqli_close($conn);
+
+// $progress = "progress";
 ?>
 <main class="container">
 	<div class="row-auto">
@@ -25,7 +46,7 @@ $progress = "progress";
 			</tr>
 		</thead>
 		<tbody>
-			<?php
+			<!--<?php
 			while ($record = mysqli_fetch_assoc($result)){
 				echo "<tr><th scope='row'>" . $record["id"] . "</th>
 				<td>" . $record["username"] . "</td>
@@ -39,7 +60,7 @@ $progress = "progress";
 				</td>
 				</tr>";
 			}
-			?>
+			?>-->
 		</tbody>
 	</table>
 </main>
