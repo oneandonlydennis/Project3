@@ -25,6 +25,18 @@
 	<?php include("resources/include/nav.php")?>
 	<div class="container">
 		<div class="row">
+		  <div class="col-12">
+		  	<?php
+			  if(isset($_GET["content"]) && $_GET["content"] == "home"){
+				include("./resources/include/carousel.php");
+			  }
+			  elseif(!isset($_GET["content"])){
+				include("./resources/include/carousel.php");
+			  }
+			  ?>
+		  </div>
+		  </div>
+		  <div class="row">
 			<div class="col-8">
 				<!--This dynamic main-part varies based on which webpage we are on-->
 				<div class="col-12">
