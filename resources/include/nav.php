@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-	<a class="navbar-brand" href="index.html">Hier komt het logo</a>
+	<a class="navbar-brand" href="./index.php?content=home">Hier komt het logo</a>
 	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
 	aria-expanded="false" aria-label="Toggle navigation"></button>
 	<div class="collapse navbar-collapse" id="collapsibleNavId">

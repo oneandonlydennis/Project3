@@ -1,8 +1,9 @@
 <head>
 <style>
 img{
-    max-width:100%;
-    height:auto;
+    max-width:70%;
+	height:auto;
+	margin-left: 15%;
 }
 }
 </style>
