@@ -2,8 +2,8 @@
 	require_once "config.php";
 	session_start();
 	$loggedin = "";
-	if(isset($_SESSION["username"])) {
-		$loggedin = "Logged in as: " . $_SESSION["username"];
+	if(isset($_SESSION["email"])) {
+		$loggedin = "Logged in as: " . $_SESSION["email"];
 	}
 ?>
 

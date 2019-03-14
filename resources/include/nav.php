@@ -24,8 +24,11 @@
 				</div>
 			</li>
 			<li>
-				<div class="loggedin"><?php echo $loggedin?></div>
+				<div class="loggedin"><?php echo $loggedin ?></div>
 			</li>
+			<?php if (isset($_SESSION["loggedin"])) {
+				echo "<a href='./index.php?content=logout' class='btn btn-danger'>Sign Out of Your Account</a>";
+			}?>
 		</ul>
 	</div>
 </nav>
