@@ -31,8 +31,6 @@ if (mysqli_stmt_fetch($stmt)) {
 	}
 }
 
-
-
 ?>
 
 <main class="container">
