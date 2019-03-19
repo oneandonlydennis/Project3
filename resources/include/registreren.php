@@ -2,7 +2,6 @@
 // Define variables and initialize with empty values
 $email = $password = $confirm_password = "";
 $email_err = $password_err = $confirm_password_err = "";
-
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
@@ -77,7 +76,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-            	//header("location: login.php");
+                $_SESSION["created"] = true;
+            	header("location: ./index.php?content=login");
             } else{
             	echo "Something went wrong. Please try again later.";
             	var_dump($stmt);
@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div class="register">
 	<h2>Sign Up</h2>
 	<p>Please fill this form to create an account.</p>
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+	<form action="index.php?content=registreren" method="post">
 		<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
 			<label>email</label>
 			<input type="email" name="email" class="form-control" value="<?php echo $email; ?>">

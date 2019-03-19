@@ -7,8 +7,14 @@ $email = $password = "";
 $email_err = $password_err = "";
 
 	// Check if email is empty
-
-
+if (isset($_SESSION["created"])) {
+} else {
+	$_SESSION["created"] = false;
+}
+if ($_SESSION["created"] == true) {
+	echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Uw nieuwe account is aangemaakt!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+	$_SESSION["created"] = false;
+}
 if($_SERVER["REQUEST_METHOD"]== "POST") {
 
 	if(empty(trim($_POST["email"]))){
