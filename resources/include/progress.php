@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $superadmin = false;
+$delete = '';
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: index.php?content=home");
@@ -45,15 +46,21 @@ if (mysqli_stmt_fetch($stmt)) {
 				<th scope="col">Username</th>
 				<th scope="col">Progress</th>
 				<th scope="col">role</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
 			while ($record = mysqli_fetch_assoc($result)){
+				//$edit = "<a href='index.php?content=edit&id=". $record['id']. "'><img src='./resources/image/edit.png' width='30' alt='Edit record'></a>";
 				echo "<tr><th scope='row'>" . $record["id"] . "</th>
 				<td>" . $record["email"] . "</td>
 				<td>" . $record["progress"] . "</td>
 				<td>" . $record["role"] . "</td>
+				<td></td>
+				<td></td>
+				<td></td>
 				</tr>";
 			}
 			?>
