@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 $superadmin = false;
 $delete = '';
 
+
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: index.php?content=home");
 	exit;
@@ -20,15 +22,18 @@ if (mysqli_stmt_fetch($stmt)) {
 	if ($role == "gebruiker") {
 		$sql = "SELECT * FROM Users WHERE id = '$_SESSION[id]'";
 		$result = mysqli_query($conn, $sql);
+		$_SESSION["role"] = "gebruiker";
 	}
 	if ($role == "admin") {
 		$sql = "SELECT * FROM Users";
 		$result = mysqli_query($conn, $sql);
+		$_SESSION["role"] = "admin";
 	}
 	if ($role == "superadmin") {
 		$sql = "SELECT * FROM Users";
 		$result = mysqli_query($conn, $sql);
 		$superadmin = true;
+		$_SESSION["role"] = "superadmin";
 	}
 }
 
@@ -53,13 +58,17 @@ if (mysqli_stmt_fetch($stmt)) {
 		<tbody>
 			<?php
 			while ($record = mysqli_fetch_assoc($result)){
-				
+				if ($superadmin) {
+					$edit = "<a href='index.php?content=edit&id=". $record['id']. "'>✏️</a>";
+				} else {
+					$edit = "";
+				}
 				//$edit = "<a href='index.php?content=edit&id=". $record['id']. "'><img src='./resources/image/edit.png' width='30' alt='Edit record'></a>";
 				echo "<tr><th scope='row'>" . $record["id"] . "</th>
 				<td>" . $record["email"] . "</td>
 				<td>" . $record["progress"] . "</td>
 				<td>" . $record["role"] . "</td>
-				<td></td>
+				<td>$edit</td>
 				<td></td>
 				<td></td>
 				</tr>";
