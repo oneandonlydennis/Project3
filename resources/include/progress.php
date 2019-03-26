@@ -53,6 +53,7 @@ if (mysqli_stmt_fetch($stmt)) {
 		<tbody>
 			<?php
 			while ($record = mysqli_fetch_assoc($result)){
+				
 				//$edit = "<a href='index.php?content=edit&id=". $record['id']. "'><img src='./resources/image/edit.png' width='30' alt='Edit record'></a>";
 				echo "<tr><th scope='row'>" . $record["id"] . "</th>
 				<td>" . $record["email"] . "</td>

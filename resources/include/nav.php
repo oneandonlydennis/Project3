@@ -1,11 +1,17 @@
+<style>
+	a img{
+		max-width: 50px;
+		max-height: 50px;
+	}
+</style>
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-	<a class="navbar-brand" href="./index.php?content=home">Hier komt het logo</a>
+	<div class="logo"><a class="navbar-brand" href="./index.php?content=home"><img src="./resources/images/logo.png" alt="logo"></a></div>
 	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
 	aria-expanded="false" aria-label="Toggle navigation"></button>
 	<div class="collapse navbar-collapse" id="collapsibleNavId">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item active">
-				<a class="nav-link" href="./index.php?content=home">Home<span class="sr-only">(current)</span></a>
+			<li class="nav-item">
+				<a class="nav-link" href="./index.php?content=home">Home</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="./index.php?content=faq">FAQ</a>
