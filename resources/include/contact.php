@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO Contact (voornaam, achternaam, email, bericht) VALUES ('$voornaam', '$achternaam', '$email', '$bericht')";
 
     if (mysqli_query($conn, $sql)) {
-      echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Uw bericht is vertuurd!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+      echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Uw bericht is verstuurd!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     } else {
       echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Er is een probleem opgetreden, probeer het later nog eens.<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     }
