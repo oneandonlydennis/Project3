@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<h2>Contacteer ons</h2>
+<h2>Neem contact met ons op</h2>
 <p>Vul hieronder je naam, email, en bericht in. Wij zullen ons best doen zo snel mogelijk te reageren.</p>
 
 <form action="index.php?content=contact" method="post">
