@@ -8,7 +8,7 @@ $delete = '';
 
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-	header("location: index.php?content=home");
+	header("location: index.php?content=login");
 	exit;
 }
 $sql = "SELECT role FROM Users WHERE id = ?";
