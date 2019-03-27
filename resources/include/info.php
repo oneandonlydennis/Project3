@@ -1,6 +1,6 @@
 <div class="info-content">
     <h1>Informatie</h1>
-    <p>Je geheugen is een heel moeilijk concept. Het is namelijk het vermogen van het brein om bepaald gebeurtenissen
+    <p>Je geheugen is een heel moeilijk concept. Het is namelijk het vermogen van het brein om bepaalde gebeurtenissen
     vast te houden. Maar hoe werkt je brein nou? Dat is een vraag wat de slimste wetenschappers bezig houd. Wel weten 
     wij hoe je het brein aanpast, en dingen aanleert.</p>
     <h3>Je brein kan je trainen</h3>
