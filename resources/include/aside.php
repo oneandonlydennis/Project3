@@ -1,3 +1,6 @@
+<!-- 
+Aside is zichtbaar vanaf de rechterkant op elke pagina
+-->
 <div class="aside">
 	<div class="asideitem">
 		<h3>Geheugentraining en geheugenverlies</h3>
