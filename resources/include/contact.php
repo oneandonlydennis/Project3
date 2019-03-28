@@ -1,24 +1,26 @@
 <?php
-
+#Define variables om errors te voorkomen
 $voornaam = "";
 $achternaam = "";
 $email = "";
 $bericht = "";
-
+#als de button is ingedrukt
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+  #MYSQL injecties tegen gaan
   $voornaam = mysqli_real_escape_string($conn, $_POST["voornaam"]);
   $achternaam = mysqli_real_escape_string($conn, $_POST["achternaam"]);
   $email = mysqli_real_escape_string($conn, $_POST["email"]);
   $bericht = mysqli_real_escape_string($conn, $_POST["bericht"]);
-
+  #Als enige veld leeg  is geef een error
   if (empty($voornaam) || empty($achternaam) || empty($email) || empty($bericht)) {
     echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>U heeft een van de velden niet ingevuld.<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
   } else {
     $sql = "INSERT INTO Contact (voornaam, achternaam, email, bericht) VALUES ('$voornaam', '$achternaam', '$email', '$bericht')";
-
+    #success bericht sturen als de vraag succesvol in de database komt
     if (mysqli_query($conn, $sql)) {
       echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Uw bericht is verstuurd!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     } else {
+      #fout weergeven als het niet is gelukt
       echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Er is een probleem opgetreden, probeer het later nog eens.<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     }
 
@@ -32,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <h2>Neem contact met ons op</h2>
 <p>Vul hieronder je naam, email, en bericht in. Wij zullen ons best doen zo snel mogelijk te reageren.</p>
-
+<!-- formulier -->
 <form action="index.php?content=contact" method="post">
   <div class="form-group">
     <label for="voornaam">Voornaam:</label>
