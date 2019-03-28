@@ -1,11 +1,11 @@
 <?php
-// Unset all of the session variables
+//Verwijder alle variables
 session_unset();
  
-// Destroy the session.
+//Vernietig de sessie
 session_destroy();
  
-// Redirect to login page
+// Redirect naar login pagina
 header("location: ./index.php?content=home");
 exit;
 ?>
