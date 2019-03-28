@@ -45,10 +45,7 @@ if (mysqli_stmt_fetch($stmt)) {
 ?>
 
 <main class="container">
-	<div class="row-auto">
-		<div class="col-auto">
-		</div>
-	</div>
+	<div class="table-responsive">
 	<table class="table">
 		<thead>
 			<tr>
@@ -81,4 +78,5 @@ if (mysqli_stmt_fetch($stmt)) {
 			?>
 		</tbody>
 	</table>
+	</div>
 </main>
