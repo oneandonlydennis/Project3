@@ -1,9 +1,11 @@
+<!-- verander de groote van de logo -->
 <style>
 	a img{
 		max-width: 50px;
 		max-height: 50px;
 	}
 </style>
+<!-- Navigatie -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
 	<div class="logo"><a class="navbar-brand" href="./index.php?content=home"><img src="./resources/images/logo.png" alt="logo"></a></div>
 	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -32,9 +34,11 @@
 					<a class="dropdown-item" href="./index.php?content=login">Inloggen</a>
 				</div>
 			</li>
+			<!-- laat persoon zien die is ingelogd -->
 			<li>
 				<div class="loggedin"><?php echo $loggedin ?></div>
 			</li>
+			<!-- log out button als persoon is ingelod -->
 			<?php if (isset($_SESSION["loggedin"])) {
 				echo "<a href='./index.php?content=logout' class='btn btn-danger'>Sign Out of Your Account</a>";
 			}?>
