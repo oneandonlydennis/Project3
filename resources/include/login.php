@@ -1,12 +1,14 @@
 <?php
+//Is de gebruiker ingelogd?
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	header("location: index.php?content=progress");
 	exit;
 }
+//Variable alvast definieren
 $email = $password = "";
 $email_err = $password_err = "";
 
-	// Check if email is empty
+//Als de gebruiker hiervoor heeft geregistreerd, laat een melding zien dat het account is aangemaakt
 if (isset($_SESSION["created"])) {
 } else {
 	$_SESSION["created"] = false;
@@ -15,56 +17,56 @@ if ($_SESSION["created"] == true) {
 	echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Uw nieuwe account is aangemaakt!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	$_SESSION["created"] = false;
 }
+//Als de button is ingedrukt
 if($_SERVER["REQUEST_METHOD"]== "POST") {
-
+	//Als email leeg is
 	if(empty(trim($_POST["email"]))){
 		$email_err = "Please enter email.";
 	} else{
 		$email = trim($_POST["email"]);
 	}
 	
-		// Check if password is empty
+	//Als wachtwoord leeg is
 	if(empty(trim($_POST["password"]))){
 		$password_err = "Please enter your password.";
 	} else{
 		$password = trim($_POST["password"]);
 	}
-
+	//Als er geen errors zijn
 	if(empty($email_err) && empty($password_err)){
-				// Prepare a select statement
+				//Bereid een select statement voor
 		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 		$sql = "SELECT id, email, password FROM Users WHERE email = ?";
 		if($stmt = mysqli_prepare($conn, $sql)){
-						// Bind variables to the prepared statement as parameters
+						//Verbind variable aan de select statement
 			mysqli_stmt_bind_param($stmt, "s", $param_email);
 			
-						// Set parameters
+						//Zet de parameter email
 			$param_email = $email;
 			
-						// Attempt to execute the prepared statement
+						//Voer de statement uit
 			if(mysqli_stmt_execute($stmt)){
-								// Store result
+								//Sla het op
 				mysqli_stmt_store_result($stmt);
-								 // Check if email exists, if yes then verify password
+								 //Bestaat de email al in onze database?
 				if(mysqli_stmt_num_rows($stmt) == 1){                    
-										// Bind result variables
+										//Verbind de nieuwe variables aan de statement
 					mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
 					if(mysqli_stmt_fetch($stmt)){
+						//Is de wachtwoord juist?
 						if(password_verify($password, $hashed_password)){
-														// Store data in session variables
+							//Verbind de variables aan de sessie variables
 							$_SESSION["loggedin"] = true;
 							$_SESSION["id"] = $id;
 							$_SESSION["email"] = $email;
 							
-														// Redirect user to login page
+							//gaar naar login pagina (maar omdat er boveaan kijkt of de persoon als is ingelogd wordt deze doorgestuurd naar de progress pagina)
 							header("location: index.php?content=login");
 						} else{
-														// Display an error message if password is not valid
 							$password_err = "The password you entered was not valid.";
 						}
 					}
 				} else{
-										// Display an error message if email doesn't exist
 					$email_err = "No account found with that email.";
 				}
 			} else{
@@ -72,11 +74,9 @@ if($_SERVER["REQUEST_METHOD"]== "POST") {
 			}
 		}
 		
-				// Close statement
 		mysqli_stmt_close($stmt);
 	}
 	
-		// Close connection
 	mysqli_close($conn);
 }
 ?>
