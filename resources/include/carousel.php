@@ -1,4 +1,5 @@
 <head>
+	<!-- Veranderd de groote van de carousel image-->
 	<style>
 	.carousel-inner > .carousel-item > img {
 		width:80%;
@@ -6,7 +7,7 @@
 	}
 </style>
 </head>
-
+<!-- Carousel -->
 <div id="RotatingHome" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#RotatingHome" data-slide-to="0" class="active"></li>
