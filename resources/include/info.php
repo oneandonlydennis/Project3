@@ -1,3 +1,4 @@
+<!-- Info pagina -->
 <div class="info-content">
     <h1>Informatie</h1>
     <p>Je geheugen is een heel moeilijk concept. Het is namelijk het vermogen van het brein om bepaalde gebeurtenissen
