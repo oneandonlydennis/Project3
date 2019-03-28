@@ -6,7 +6,7 @@
 	}
 </style>
 <!-- Navigatie -->
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
 	<div class="logo"><a class="navbar-brand" href="./index.php?content=home"><img src="./resources/images/logo.png" alt="logo"></a></div>
 	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
 	aria-expanded="false" aria-label="Toggle navigation"></button>
