@@ -1,3 +1,4 @@
+<!-- FAQ pagina -->
 <div class="faq-content">
     <h1>Veelgestelde vragen</h1> 
     <h3>Hoe train je je geheugen?</h3>
