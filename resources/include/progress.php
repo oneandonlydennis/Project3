@@ -2,15 +2,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+//Variables definieren
 $superadmin = false;
 $delete = '';
 
 
-
+//is persoon ingelogd?
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: index.php?content=login");
 	exit;
 }
+//Statement klaar zetten om progress te laten zien
 $sql = "SELECT role FROM Users WHERE id = ?";
 if($stmt = mysqli_prepare($conn, $sql)){
 	mysqli_stmt_bind_param($stmt, "i", $_SESSION["id"]);
@@ -19,16 +21,19 @@ if($stmt = mysqli_prepare($conn, $sql)){
 	mysqli_stmt_bind_result($stmt, $role);
 }
 if (mysqli_stmt_fetch($stmt)) {
+	//Is de persoon gebruiker? Laat alleen zijn eigen progress zien
 	if ($role == "gebruiker") {
 		$sql = "SELECT * FROM Users WHERE id = '$_SESSION[id]'";
 		$result = mysqli_query($conn, $sql);
 		$_SESSION["role"] = "gebruiker";
 	}
+	//Is de persoon admin? Laat progress van iedereen zien
 	if ($role == "admin") {
 		$sql = "SELECT * FROM Users";
 		$result = mysqli_query($conn, $sql);
 		$_SESSION["role"] = "admin";
 	}
+	//Is de persoon superadmin? Laat een edit button zien om rollen te bewerken
 	if ($role == "superadmin") {
 		$sql = "SELECT * FROM Users";
 		$result = mysqli_query($conn, $sql);
