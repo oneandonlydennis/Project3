@@ -76,11 +76,15 @@ if (mysqli_stmt_fetch($stmt)) {
 					<td>$edit</td>
 					</tr>";
 				}
-				if ($gebruiker) {
-					include("./resources/game/index.html"); 
-				}
+
 				?>
 			</tbody>
 		</table>
+	</div>
+	<div class="game">
+		<?php
+		if ($gebruiker) {
+			include("./resources/game/index.html"); 
+		}?>
 	</div>
 </main>
