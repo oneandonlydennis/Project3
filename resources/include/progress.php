@@ -77,7 +77,7 @@ if (mysqli_stmt_fetch($stmt)) {
 					</tr>";
 				}
 				if ($gebruiker) {
-					include("../game/index.html"); 
+					include("./resources/game/index.html"); 
 				}
 				?>
 			</tbody>
