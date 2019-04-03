@@ -91,6 +91,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST") {
 		<input type="password" class="form-control" id="password" placeholder="" name="password">
 		<span class="help-block"><?php echo $password_err; ?></span>
 	</div>
+	<p>Nog geen account? Maak uw eigen account <a href="index.php?content=registreren">hier</a> aan.</p>
 	<button type="submit" class="btn btn-primary">Login</button>
 </form>
 
