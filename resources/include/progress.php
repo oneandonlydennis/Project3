@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //Variables definieren
+$gebruiker = false;
 $superadmin = false;
 $delete = '';
 
@@ -26,6 +27,7 @@ if (mysqli_stmt_fetch($stmt)) {
 		$sql = "SELECT * FROM Users WHERE id = '$_SESSION[id]'";
 		$result = mysqli_query($conn, $sql);
 		$_SESSION["role"] = "gebruiker";
+		$gebruiker = true;
 	}
 	//Is de persoon admin? Laat progress van iedereen zien
 	if ($role == "admin") {
@@ -46,37 +48,39 @@ if (mysqli_stmt_fetch($stmt)) {
 
 <main class="container">
 	<div class="table-responsive">
-	<table class="table">
-		<thead>
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Username</th>
-				<th scope="col">Progress</th>
-				<th scope="col">role</th>
-				<th scope="col"></th>
-				<th scope="col"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-			while ($record = mysqli_fetch_assoc($result)){
-				if ($superadmin) {
-					$edit = "<a href='index.php?content=edit&id=". $record['id']. "'>✏️</a>";
-				} else {
-					$edit = "";
-				}
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Username</th>
+					<th scope="col">Progress</th>
+					<th scope="col">role</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				while ($record = mysqli_fetch_assoc($result)){
+					if ($superadmin) {
+						$edit = "<a href='index.php?content=edit&id=". $record['id']. "'>✏️</a>";
+					} else {
+						$edit = "";
+					}
+
 				//$edit = "<a href='index.php?content=edit&id=". $record['id']. "'><img src='./resources/image/edit.png' width='30' alt='Edit record'></a>";
-				echo "<tr><th scope='row'>" . $record["id"] . "</th>
-				<td>" . $record["email"] . "</td>
-				<td>" . $record["progress"] . "</td>
-				<td>" . $record["role"] . "</td>
-				<td>$edit</td>
-				<td></td>
-				<td></td>
-				</tr>";
-			}
-			?>
-		</tbody>
-	</table>
+					echo "<tr><th scope='row'>" . $record["id"] . "</th>
+					<td>" . $record["email"] . "</td>
+					<td>" . $record["progress"] . "</td>
+					<td>" . $record["role"] . "</td>
+					<td>$edit</td>
+					</tr>";
+				}
+				if ($gebruiker) {
+					include("../game/index.html"); 
+				}
+				?>
+			</tbody>
+		</table>
 	</div>
 </main>
