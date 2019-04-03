@@ -81,10 +81,10 @@ if (mysqli_stmt_fetch($stmt)) {
 			</tbody>
 		</table>
 	</div>
-	<div class="game">
-		<?php
-		if ($gebruiker) {
-			include("./resources/game/index.html"); 
-		}?>
-	</div>
 </main>
+<div class="game">
+	<?php
+	if ($gebruiker) {
+		include("./resources/game/index.html"); 
+	}?>
+</div>
