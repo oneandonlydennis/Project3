@@ -82,9 +82,4 @@ if (mysqli_stmt_fetch($stmt)) {
 		</table>
 	</div>
 </main>
-<div class="game">
-	<?php
-	if ($gebruiker) {
-		include("./resources/game/index.html"); 
-	}?>
-</div>
+<a href="./resources/game/index.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Play game</a>
