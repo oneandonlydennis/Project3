@@ -1,8 +1,10 @@
 <?php
+session_start();
+
 //connectie database includen
 require_once "../../config.php";
 
-$sql = "SELECT progress FROM Users WHERE id = 7"; 
+$sql = "SELECT progress FROM Users WHERE id = '$_SESSION[id]'"; 
 
 if ($result = mysqli_query($conn, $sql)) {
 	$record = mysqli_fetch_assoc($result);
