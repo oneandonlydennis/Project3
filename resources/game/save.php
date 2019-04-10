@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Access-Control-Allow-Origin: *");
 //connectie database includen
 require_once "../../config.php";
 $progress = mysqli_real_escape_string($conn, $_GET["progress"]); 
