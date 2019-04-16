@@ -37,7 +37,7 @@
 		  </div>
 		  </div>
 		  <div class="row">
-			<div class="col-8">
+			<div class="col-12 col-md-8">
 				<!--This dynamic main-part varies based on which webpage we are on-->
 				<div class="col-12">
 					<section class="content">
@@ -51,7 +51,7 @@
 				</section>
 			</div>
 		</div>
-		<div class="col-4">
+		<div class="col-12 col-md-4">
 			<?php include("resources/include/aside.php")?>
 		</div>
 	</div>
